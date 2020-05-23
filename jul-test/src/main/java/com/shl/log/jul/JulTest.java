@@ -1,8 +1,10 @@
 package com.shl.log.jul;
 
+import java.io.InputStream;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import org.junit.Test;
@@ -97,7 +99,7 @@ public class JulTest {
 
   /**
    * Logger对象父子关系
-   *    如果没有设置logger，默认走LogManager$RootLogger，即root
+   *    如果没有设置logger，默认走LogManager$RootLogger，即root，rootLogger的name是空字符串""
    *    如果logger1没有设置日志级别，那么就会使用logger2的日志级别，如果logger1页没有设置日志级别，那么使用RootLogger的日志级别
    */
   @Test
@@ -142,4 +144,69 @@ public class JulTest {
     logger1.finest("finest");
   }
 
+  /**
+   * 配置文件方式
+   * @throws Exception
+   */
+  @Test
+  public void testLogProperties()throws Exception{
+    //start  手动加载配置文件，实际不需要手动去操作
+
+    // 读取配置文件，通过类加载器
+    InputStream ins = JulTest.class.getClassLoader().getResourceAsStream("logging.properties");
+    // 创建LogManager
+    LogManager logManager = LogManager.getLogManager();
+    // 通过LogManager加载配置文件
+    logManager.readConfiguration(ins);
+
+    //end  手动加载配置文件，实际不需要手动去操作
+
+
+    // 创建日志记录器
+    Logger logger = Logger.getLogger("com.shl");
+    logger.severe("severe");
+    logger.warning("warning");
+    logger.info("info");
+    logger.config("config");
+    logger.fine("fine");
+    logger.finer("finer");
+    logger.finest("finest");
+
+
+    Logger logger2 = Logger.getLogger("test");
+    logger2.severe("severe test");
+    logger2.warning("warning test");
+    logger2.info("info test");
+    logger2.config("config test");
+    logger2.fine("fine test");
+    logger2.finer("finer test");
+    logger2.finest("finest test");
+  }
+
+
+  /**
+   * 源码分析
+   * @throws Exception
+   */
+  @Test
+  public void codeAnalysis()throws Exception{
+    Logger logger = Logger.getLogger("com.shl");
+    logger.severe("severe");
+    logger.warning("warning");
+    logger.info("info");
+    logger.config("config");
+    logger.fine("fine");
+    logger.finer("finer");
+    logger.finest("finest");
+
+
+    Logger logger2 = Logger.getLogger("test");
+    logger2.severe("severe test");
+    logger2.warning("warning test");
+    logger2.info("info test");
+    logger2.config("config test");
+    logger2.fine("fine test");
+    logger2.finer("finer test");
+    logger2.finest("finest test");
+  }
 }
