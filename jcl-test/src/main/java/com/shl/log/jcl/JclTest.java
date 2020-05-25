@@ -13,7 +13,7 @@ public class JclTest {
   @Test
   public void testQuick() throws Exception {
     // 获取 log日志记录器对象
-    Log log = LogFactory.getLog(JclTest.class);
+    Log log = LogFactory.getLog(com.shl.log.jcl.JclTest.class);
 
     // 日志记录输出
     log.info("hello jcl");
