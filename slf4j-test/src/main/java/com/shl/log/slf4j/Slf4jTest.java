@@ -15,6 +15,7 @@ public class Slf4jTest {
   /**
    * 门面：slf4j
    * 日志实现：slf4j-simple，是slf4j内置的简单日志实现框架
+   *        logback
    * @throws Exception
    */
   @Test
@@ -27,7 +28,7 @@ public class Slf4jTest {
     LOGGER.trace("trace");
 
     // 使用占位符输出日志信息
-    String name = "itheima";
+    String name = "shl";
     Integer age = 14;
     LOGGER.info("用户：{},{}",name,age);
 
