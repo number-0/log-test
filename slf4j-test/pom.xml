@@ -41,11 +41,11 @@
       slf4j绑定logback：引入logback-classic、logback-core
       logback-classic内部已经包含logback-core
     -->
-    <!--<dependency>
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
-    </dependency>-->
+    </dependency>
 
     <!--
        slf4j绑定slf4j-nop
@@ -71,19 +71,18 @@
         <version>1.2.17</version>
     </dependency>-->
 
-
     <!-- slf4j绑定jul：需要引入适配器slf4j-jdk14 -->
-    <dependency>
+    <!--<dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-jdk14</artifactId>
         <version>1.7.25</version>
-    </dependency>
+    </dependency>-->
 
     <!--配置 log4j 的桥接器-->
-    <!--<dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>log4j-over-slf4j</artifactId>
       <version>1.7.25</version>
-    </dependency>-->
+    </dependency>
   </dependencies>
 </project>
