@@ -81,7 +81,7 @@
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
       <!--日志过滤规则-->
       <level>ERROR</level> <!-- 对error级别的日志进行过滤 -->
-      <onMatch>ACCEPT</onMatch> <!-- 超过error级别的日志放行 -->
+      <onMatch>ACCEPT</onMatch> <!-- 高于error级别的日志放行 -->
       <onMismatch>DENY</onMismatch> <!-- 低于error级别的日志过滤 -->
     </filter>
   </appender>
