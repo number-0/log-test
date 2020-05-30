@@ -61,7 +61,7 @@
 
 
   <!--日志拆分和归档压缩的 appender 对象-->
-  <appender name="rollFile" class="ch.qos.logback.core.rolling.Rolling FileAppender">
+  <appender name="rollFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <!--日志文件保存路径-->
     <file>${log_dir}/roll_logback.log</file>
     <!--日志消息格式配置-->
@@ -80,9 +80,9 @@
     <!--日志级别过滤器-->
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
       <!--日志过滤规则-->
-      <level>ERROR</level>
-      <onMatch>ACCEPT</onMatch>
-      <onMismatch>DENY</onMismatch>
+      <level>ERROR</level> <!-- 对error级别的日志进行过滤 -->
+      <onMatch>ACCEPT</onMatch> <!-- 超过error级别的日志放行 -->
+      <onMismatch>DENY</onMismatch> <!-- 低于error级别的日志过滤 -->
     </filter>
   </appender>
 
@@ -116,9 +116,12 @@
   </root>
 
   <!--自定义 logger 对象
-      additivity="false" 自定义 logger 对象是否继承 rootLogger
+      additivity="false"：自定义logger对象是否继承rootLogger，false为不几次
+                          不继承的话，那么也不会继承rootLogger的consoleLogger和asyncLogger
+                                    consoleLogger和asyncLogger必须重新在logger中引入
    -->
-  <logger name="com.itheima" level="info" additivity="false">
+  <logger name="com.shl" level="info" additivity="false">
     <appender-ref ref="console"/>
+    <appender-ref ref="async"/>
   </logger>
 </configuration>
