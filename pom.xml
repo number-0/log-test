@@ -17,6 +17,7 @@
     <module>log4j-test</module>
     <module>jcl-test</module>
     <module>slf4j-test</module>
+    <module>logback-test</module>
   </modules>
 
 
