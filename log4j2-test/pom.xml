@@ -34,7 +34,7 @@
     </dependency>
 
 
-    <!--log4j2日志门面-->
+    <!--log4j2日志门面。一般使用slf4j-->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
