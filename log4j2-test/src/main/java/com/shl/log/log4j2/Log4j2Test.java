@@ -17,7 +17,7 @@ public class Log4j2Test {
 
   /**
    * log4j2的日志门面使用log4j2-api
-   * @throws Exception
+   * @throws Exception 
    */
   @Test
   public void quickStart() throws Exception {
