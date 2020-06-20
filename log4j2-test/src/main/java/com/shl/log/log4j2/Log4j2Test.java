@@ -1,8 +1,8 @@
 package com.shl.log.log4j2;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * log4j2的日志门面使用log4j2-api
@@ -13,7 +13,7 @@ import org.junit.Test;
 public class Log4j2Test {
 
   // 定义日志记录器对象
-  public static final Logger LOGGER = LogManager.getLogger(Log4j2Test.class);
+//  public static final Logger LOGGER = LogManager.getLogger(Log4j2Test.class);
 
   /**
    * log4j2的日志门面使用log4j2-api
@@ -21,8 +21,10 @@ public class Log4j2Test {
    */
   @Test
   public void quickStart() throws Exception {
+    Logger LOGGER = LoggerFactory.getLogger(Log4j2Test.class);
+
     // 日志消息输出
-    LOGGER.fatal("fatal");
+//    LOGGER.fatal("fatal");
     LOGGER.error("error");
     LOGGER.warn("warn");
     LOGGER.info("inf");
