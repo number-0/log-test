@@ -27,4 +27,13 @@ public class Slf4jTest {
     LOGGER.debug("debug");
     LOGGER.trace("trace");
   }
+
+  /**
+   * XmlConfiguration#start(AbstractConfiguration#start())
+   * 执行逻辑：
+   *
+   */
+  public static void main(String[] args) {
+
+  }
 }

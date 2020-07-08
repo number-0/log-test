@@ -10,7 +10,7 @@
         使用时通过:${name}
     -->
     <properties>
-        <property name="LOG_HOME">/logs</property>
+        <property name="LOG_HOME">/Users/songhengliang/java/workspace-shl/log-test/log4j2-test/logs</property>
     </properties>
 
     <!--日志处理-->
@@ -40,8 +40,10 @@
             filePattern：
               $${date:yyyy-MM-dd}按天为文件夹名称
               myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log按分钟切割日志文件，如果文件超过指定大小，则通过序号切割%i文件
+
+         RollingRandomAccessFile 性能比 RollingFile更优
         -->
-        <RollingFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
+        <RollingRandomAccessFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
                      filePattern="/logs/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log">
             <!--
               日志级别过滤器
@@ -61,7 +63,7 @@
             </Policies>
             <!--在同一个目录下，文件的个数限定为 30 个，超过进行覆盖，覆盖时间最老的-->
             <DefaultRolloverStrategy max="30" />
-        </RollingFile>
+        </RollingRandomAccessFile>
 
 
         <!-- appender使用异步appender，因为性能提升少几乎不用 -->
@@ -78,9 +80,12 @@
             includeLocation="false" 关闭日志记录的行号信息，因为影响性能
             additivity="false" 不在继承 rootlogger 对象
         -->
-        <AsyncLogger name="com.shl" level="trace" includeLocation="false" additivity="false">
+        <!--<AsyncLogger name="com.shl" level="debug" includeLocation="true" additivity="false">-->
+            <!--<AppenderRef ref="Console"/>-->
+        <!--</AsyncLogger>-->
+        <Logger name="com.shl" level="debug" includeLocation="true" additivity="false">
             <AppenderRef ref="Console"/>
-        </AsyncLogger>
+        </Logger>
 
 
         <!--使用 rootLogger 配置 日志级别 level="trace"-->
