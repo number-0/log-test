@@ -81,7 +81,7 @@
   </Appenders>
 
   <Loggers>
-    <Root level="info">
+    <Root level="info" includeLocation="true">
       <AppenderRef ref="Console" level="${sys:logging.console.level:-off}"/>
       <AppenderRef ref="primaryLogFile"/>
       <AppenderRef ref="warnLogFile"/>
