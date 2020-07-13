@@ -44,7 +44,7 @@
          RollingRandomAccessFile 性能比 RollingFile更优
         -->
         <RollingRandomAccessFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
-                     filePattern="/logs/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log">
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log">
             <!--
               日志级别过滤器
                 onMatch="ACCEPT"：高于debug级别的日志放行
@@ -85,13 +85,14 @@
         <!--</AsyncLogger>-->
         <Logger name="com.shl" level="debug" includeLocation="true" additivity="false">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="rollingFile"/>
         </Logger>
 
 
         <!--使用 rootLogger 配置 日志级别 level="trace"-->
-        <Root level="trace">
+        <Root level="debug">
             <!--指定日志使用的处理器-->
-            <AppenderRef ref="Console" />
+            <AppenderRef ref="Console"/>
 
             <!-- 使用异步appender，因为性能提升少几乎不用 -->
             <!--<AppenderRef ref="Async" />-->
