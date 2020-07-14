@@ -17,7 +17,7 @@
     <Property name="error.file.name">${error.file.prefix}.log</Property>
     <!--rolling file-->
     <Property name="primary.rolling.file.name">${primary.file.prefix}-%d{yyyy-MM-dd-HH}-%i.log.gz</Property>
-    <Property name="warn.rolling.file.name">{warn.file.prefix}-%d{yyyy-MM-dd}-%i.log.gz</Property>
+    <Property name="warn.rolling.file.name">${warn.file.prefix}-%d{yyyy-MM-dd}-%i.log.gz</Property>
     <Property name="error.rolling.file.name">${error.file.prefix}-%d{yyyy-MM-dd}-%i.log.gz</Property>
 
     <!--layout-->
@@ -47,7 +47,7 @@
 
     <RollingRandomAccessFile name="warnLogFile"
       immediateFlush="true" fileName="${warn.file.name}"
-      filePattern="{warn.rolling.file.name}">
+      filePattern="${warn.rolling.file.name}">
       <PatternLayout pattern="${layout}"/>
       <ThresholdFilter level="warn"/>
       <Policies>

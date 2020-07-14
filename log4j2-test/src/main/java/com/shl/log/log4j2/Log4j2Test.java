@@ -28,6 +28,8 @@ public class Log4j2Test {
   public void quickStart() throws Exception {
     Logger LOGGER = LoggerFactory.getLogger(Log4j2Test.class);
 
+    System.out.println();
+
 //    LOGGER.debug("debug .......");
     LOGGER.info("info ........");
 
@@ -46,7 +48,7 @@ public class Log4j2Test {
     Logger LOGGER = LoggerFactory.getLogger(Log4j2Test.class);
 
     while(true) {
-      Thread.sleep(5L);
+      Thread.sleep(500L);
       LOGGER.info("info ........");
       LOGGER.warn("info ........");
       LOGGER.error("info ........");
